@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'insta_asset_picker.dart';
+import 'assets_picker/multi_assets_page.dart';
+// import 'insta_asset_picker.dart';
 
 void main() {
   runApp(const MainApp());
@@ -55,7 +56,32 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: _buildTheme(Brightness.light),
       darkTheme: _buildTheme(Brightness.dark),
-      home: const InstaAssetPicker(),
+      // home: const InstaAssetPicker(),
+      home: MultiAssetsPage(
+        maxAssetsCount: 4,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: TextButton.icon(
+            style: TextButton.styleFrom(
+              minimumSize: const Size(500, 0),
+              shape: const StadiumBorder(),
+              padding: const EdgeInsets.all(10),
+              side: const BorderSide(color: Colors.grey, width: 2),
+              surfaceTintColor: Colors.grey,
+            ),
+            label: const Text(
+              "Upload thumbnail",
+              style: TextStyle(fontSize: 18, color: Colors.white),
+            ),
+            icon: const Icon(
+              Icons.add_photo_alternate,
+              size: 24.0,
+              color: Color(0xff0040e8),
+            ),
+            onPressed: null,
+          ),
+        ),
+      ),
     );
   }
 }
